@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import '../../model/weather_model.dart';
 
 class HourlyWeatherListItem extends StatelessWidget {
@@ -44,6 +45,21 @@ class HourlyWeatherListItem extends StatelessWidget {
                 ),
               ),
             ],
+          ),
+
+          Container(
+            height: 50,
+            decoration: const BoxDecoration(
+              shape: BoxShape.circle,
+              color: Colors.teal
+            ),
+            child: Image.network("https:${hour?.condition?.icon.toString()}"),
+          ),
+          Text(
+              DateFormat.j().format(DateTime.parse(hour?.time?.toString() ?? "")),
+            style: const TextStyle(
+              color: Colors.white
+            ),
           )
 
         ],
