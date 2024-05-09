@@ -6,7 +6,7 @@ class HourlyWeatherListItem extends StatelessWidget {
 
   final Hour? hour;
 
-  const HourlyWeatherListItem({Key? key, this.hour}) : super(key: key);
+  const HourlyWeatherListItem({super.key, this.hour});
 
   @override
   Widget build(BuildContext context) {

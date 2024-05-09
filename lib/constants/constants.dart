@@ -1,4 +1,4 @@
 
 
-const baseUrl = "http://api.weatherapi.com/v1/forecast.json?key=b40b619b236d4d73b4b191835242404";
+const baseUrl = "http://api.weatherapi.com/v1/forecast.json?key=6678374082f74fa0bf154815240905";
 

@@ -7,8 +7,76 @@ import 'package:sakib/model/weather_model.dart';
 class TodaysWeather extends StatelessWidget {
 
   final WeatherModel? weatherModel;
-
   const TodaysWeather({super.key, this.weatherModel});
+
+  WeatherType getWeatherType(Current? current) {
+
+    if(current?.isDay == 1) {
+
+      if(current?.condition?.text == "Sunny") {
+        return WeatherType.sunny;
+      }
+      else if(current?.condition?.text == "OverCast") {
+        return WeatherType.overcast;
+      }
+      else if(current?.condition?.text == "Partly Cloudy") {
+        return WeatherType.cloudy;
+      }
+      else if(current?.condition?.text == "Cloudy") {
+        return WeatherType.cloudy;
+      }
+      else if(current?.condition?.text == "Mist") {
+        return WeatherType.lightSnow;
+      }
+      else if(current!.condition!.text!.contains("thunder")) {
+        return WeatherType.thunder;
+      }
+      else if(current.condition!.text!.contains("rain")) {
+        return WeatherType.heavyRainy;
+      }
+      else if(current.condition!.text!.contains("showers")) {
+        return WeatherType.middleSnow;
+      }
+      else if(current.condition!.text!.contains("Clear")) {
+        return WeatherType.sunny;
+      }
+
+    }
+    else {
+
+      if(current?.condition?.text == "Sunny") {
+        return WeatherType.sunny;
+      }
+      else if(current?.condition?.text == "OverCast") {
+        return WeatherType.overcast;
+      }
+      else if(current?.condition?.text == "Partly Cloudy") {
+        return WeatherType.cloudyNight;
+      }
+      else if(current?.condition?.text == "Cloudy") {
+        return WeatherType.cloudyNight;
+      }
+      else if(current?.condition?.text == "Mist") {
+        return WeatherType.lightSnow;
+      }
+      else if(current!.condition!.text!.contains("thunder")) {
+        return WeatherType.thunder;
+      }
+      else if(current.condition!.text!.contains("rain")) {
+        return WeatherType.heavyRainy;
+      }
+      else if(current.condition!.text!.contains("showers")) {
+        return WeatherType.middleSnow;
+      }
+      else if(current.condition!.text!.contains("Clear")) {
+        return WeatherType.sunnyNight;
+      }
+
+    }
+
+    return WeatherType.heavyRainy;
+
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -18,8 +86,8 @@ class TodaysWeather extends StatelessWidget {
       children: [
 
         WeatherBg(
-          weatherType: WeatherType.heavyRainy,
-          width: double.infinity,
+          weatherType: getWeatherType(weatherModel?.current),
+          width: MediaQuery.of(context).size.width,
           height: MediaQuery.sizeOf(context).height/2.8,
         ),
 
