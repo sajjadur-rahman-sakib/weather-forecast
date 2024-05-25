@@ -74,11 +74,10 @@ class _HomePageState extends State<HomePage> {
 
                 setState(() {});
               },
-              icon: const Icon(Icons.my_location)
-          )
+              icon: const Icon(Icons.my_location))
         ],
         centerTitle: true,
-        backgroundColor: Colors.blueGrey,
+        backgroundColor: Colors.white24,
         foregroundColor: Colors.white,
       ),
       body: SafeArea(
